@@ -72,6 +72,70 @@ git-scm.com --> download git
 delete .git directory in C:\Feri\ELearn\Agnular+NetCore\DatingApp-SPA
 cd C:\Feri\ELearn\Agnular+NetCore
 git init
+write .gitignore
+initial commit
+
+@MadlFerenc
+create github account with:  2xM1t...
+echo "# DatingApp" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/MadlFerenc/DatingApp.git
+error:
+remote: Permission to MadlFerenc/DatingApp.git denied to tommadl
+solution:
+Anmeldeinformationsverwaltung -- delete git:https://github.com
+
+git push -u origin master
+-----------------------
+security issues
+http://localhost:5000/api/auth/register
+Body: username, password
+response: auth-token (201: created)
+Postman -- Headers / Key: Authorisation Values: Bearer auth-token
+
+storing password in the database
+password --> hash/SHA512 (one way) -- not enough
+hash+salt --> better (salt is saved in the db)
+                
+adding user.cs 
+migration:         public DbSet<Value> Values { get; set; }
+
+repository pattern
+Kestrel --> Controller --> DbContext --> EF --> DB
+Controller --> GetUser(s), Login(USer)  --> Repository-Interface --> Repository-Implementation GetUser(s), Login(User) --> Cloud/Disk/Memory
+
+repository pattern advantages:
+- no duplicate query logic
+- decouple framework from application
+- all db queries in the same place
+- good testability
+
+using() {} for crypt because Dispose on the end
+
+registering service in startup:
+            services.AddScoped<IAuthRepository, AuthRepository>();
+
+
+public class ValuesController : ControllerBase // controlBase for view controller
+[FromBody] not necessary if [ApiControl] is used
+
+Token authentication, validation made by the service, no db request necessary
+
+JWTs - JSON Web Tokens: header.payload.secret
+credentials - Zugangsdaten
+claims - Rechte
+
+https://jwt.io token examiner
+with jwt-token the authorisation can be checked --> jwtBearer
+
+
+
+
+
+
+
 
 
 
